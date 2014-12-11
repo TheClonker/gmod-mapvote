@@ -102,7 +102,7 @@ function MapVote.Start(length, current, limit, prefix, callback)
     local amt = 0
 
     for k, map in RandomPairs(maps) do
-        local mapstr = map:sub(1, -5):lower()
+        local mapstr = map:lower()
         if(not current and game.GetMap():lower() == map) then continue end
         if(cooldown and table.HasValue(recentmaps, map)) then continue end
 

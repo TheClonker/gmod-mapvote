@@ -1,4 +1,4 @@
-local CATEGORY_NAME = "MapVote"
+local CATEGORY_NAME = "TTT Admin"
 ------------------------------ VoteMap ------------------------------
 function AMB_mapvote( calling_ply, votetime, should_cancel )
 	if not should_cancel then
