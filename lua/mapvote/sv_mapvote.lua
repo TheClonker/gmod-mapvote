@@ -93,6 +93,10 @@ function MapVote.Start(length, current, limit, prefix, callback)
 
         table.remove( maps ) 
     
+        table.foreach( maps, function( key, value )
+            maps[key] = string.Trim( value )
+        end )
+    
     end
 
     local vote_maps = {}
@@ -176,6 +180,7 @@ function MapVote.Start(length, current, limit, prefix, callback)
                 if (callback) then
                     callback(map)
                 else
+                    print("[MapVote] changing map to: " .. map )
                     RunConsoleCommand("changelevel", map)
                 end
             end
