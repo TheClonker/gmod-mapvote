@@ -106,13 +106,13 @@ function MapVote.Start(length, current, limit, prefix, callback)
 
         if is_expression then
             if(string.find(map, prefix)) then -- This might work (from gamemode.txt)
-                vote_maps[#vote_maps + 1] = map:sub(1, -5)
+                vote_maps[#vote_maps + 1] = map
                 amt = amt + 1
             end
         else
             for k, v in pairs(prefix) do
                 if string.find(map, "^"..v) then
-                    vote_maps[#vote_maps + 1] = map:sub(1, -5)
+                    vote_maps[#vote_maps + 1] = map
                     amt = amt + 1
                     break
                 end
