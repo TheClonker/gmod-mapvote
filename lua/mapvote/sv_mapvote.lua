@@ -94,8 +94,6 @@ function MapVote.Start(length, current, limit, prefix, callback)
         table.remove( maps ) 
     
     end
-    
-    PrintTable(maps)
 
     local vote_maps = {}
     
