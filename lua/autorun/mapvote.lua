@@ -23,13 +23,9 @@ hook.Add( "Initialize", "MapVoteConfigSetup", function()
 end )
 
 function MapVote.HasExtraVotePower(ply)
-	-- Example that gives admins more voting power
-	--[[
-    if ply:IsAdmin() then
+    if ply:IsAdmin() or ply:IsSuperAdmin() or ply:IsUserGroup("operator") then
 		return true
 	end 
-    ]]
-
 	return false
 end
 
