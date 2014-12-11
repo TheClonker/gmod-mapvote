@@ -46,7 +46,7 @@ function CoolDownDoStuff()
         table.remove(recentmaps)
     end
 
-    local curmap = game.GetMap():lower()..".bsp"
+    local curmap = game.GetMap():lower() 
 
     if not table.HasValue(recentmaps, curmap) then
         table.insert(recentmaps, 1, curmap)
@@ -82,14 +82,28 @@ function MapVote.Start(length, current, limit, prefix, callback)
     end
     
     local maps = file.Find("maps/*.bsp", "GAME")
+
+    table.foreach( maps, function( key, value )
+        maps[key] = string.Replace( value, ".bsp", "" )
+    end )
+
+    if file.Exists( "cfg/mapcycle.txt", "GAME" ) then
+
+        maps = string.Split( file.Read("cfg/mapcycle.txt", "GAME"), "\n" ) 
+
+        table.remove( maps ) 
     
+    end
+    
+    PrintTable(maps)
+
     local vote_maps = {}
     
     local amt = 0
 
     for k, map in RandomPairs(maps) do
         local mapstr = map:sub(1, -5):lower()
-        if(not current and game.GetMap():lower()..".bsp" == map) then continue end
+        if(not current and game.GetMap():lower() == map) then continue end
         if(cooldown and table.HasValue(recentmaps, map)) then continue end
 
         if is_expression then
