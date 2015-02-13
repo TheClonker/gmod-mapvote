@@ -1,4 +1,11 @@
-local CATEGORY_NAME = "TTT Admin"
+local CATEGORY_NAME = "GMN"
+
+/*
+if GAMEMODE_NAME == "terrortown" then
+	CATEGORY_NAME = "TTT Admin"
+end
+*/
+
 ------------------------------ VoteMap ------------------------------
 function AMB_mapvote( calling_ply, votetime, should_cancel )
 	if not should_cancel then
