@@ -35,7 +35,13 @@ hook.Add( "Initialize", "AutoTTTMapVote", function()
           return true   
         end )
       end
+	  
+      if GAMEMODE_NAME == "hideandseek" then
+        hook.Add("HASGameEnded", "StartMapVoteAtEndOfGame", function()
+          MapVote.Start(nil, nil, nil, nil)
+          return true   
+        end )
+      end
 
 end )
-
 
